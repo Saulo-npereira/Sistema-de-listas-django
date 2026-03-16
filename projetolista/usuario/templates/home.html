@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bem vindo {{request.user}}</h1>
+    <form action="" method="post"> {% csrf_token %}
+        <label for="">Digite o nome da lista</label>
+        <input type="text" name="nome_lista">
+        <input type="submit" value="Criar lista">
+    </form>
+    <p style="color: red;">{{message}}</p>
+    {% for lista in listas %}
+        <div>
+            <a href="{% url 'usuario:lista' lista.id %}">{{lista}}</a>
+        </div>
+    {% endfor %}
+</body>
+</html>

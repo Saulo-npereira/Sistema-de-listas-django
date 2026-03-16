@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bem indo a lista "{{lista}}"</h1>
+    <form action="" method="post">{% csrf_token %}
+        <label for="">Conteudo:</label>
+        <input type="text" name="conteudo" placeholder="Digite o conteudo da lista">
+        <input type="submit" value="Criar conteudo">
+    </form>
+    {% for conteudo in conteudos %}
+        <p>{{conteudo}}</p>
+    {% endfor %}
+    <p>Lista criada em {{lista.data_cricao}}</p>
+</body>
+</html>
