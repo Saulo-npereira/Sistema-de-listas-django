@@ -15,7 +15,7 @@
     <p style="color: red;">{{message}}</p>
     {% for lista in listas %}
         <div>
-            <a href="{% url 'usuario:lista' lista.id %}">{{lista}}</a>
+            <a href="{% url 'usuario:lista' lista.id %}">{{lista}} <a href="{% url 'usuario:deletar_lista' lista.id %}">Deletar</a></a>
         </div>
     {% endfor %}
 </body>

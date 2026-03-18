@@ -13,8 +13,9 @@
         <input type="submit" value="Criar conteudo">
     </form>
     {% for conteudo in conteudos %}
-        <p>{{conteudo}}</p>
+        <p>{{conteudo}} <a href="{% url 'usuario:deletar_conteudo' conteudo.id %}">Deletar</a></p>
     {% endfor %}
     <p>Lista criada em {{lista.data_cricao}}</p>
+    <a href="{% url 'usuario:homepage' %}">Voltar</a>
 </body>
 </html>

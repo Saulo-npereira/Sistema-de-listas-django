@@ -80,4 +80,16 @@ def lista(request, lista_id):
     }
     return render(request, 'lista.html', context)
 
+def deletar_lista(request, id_lista):
+    lista = get_object_or_404(Lista, id=id_lista)
+    lista.delete()
+    context = {
+        'message': 'Lista deletada com sucesso'
+    }
+    return redirect('usuario:homepage')
+
+def deletar_conteudo(request, id_conteudo):
+    conteudo = get_object_or_404(ConteudoLista, id=id_conteudo)
+    conteudo.delete()
+    return redirect('usuario:lista', conteudo.lista.id)
 # Create your views here.
